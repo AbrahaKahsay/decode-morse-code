@@ -37,3 +37,7 @@ $morce_hash = {
   '-----' => 0
 }
 
+def decode_letter(letter)
+  letter = $morce_hash[letter]
+  letter
+end
