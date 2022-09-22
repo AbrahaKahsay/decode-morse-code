@@ -37,7 +37,29 @@ $morce_hash = {
   '-----' => 0
 }
 
+# Create a method to decode a Morse code character
+
 def decode_letter(letter)
   letter = $morce_hash[letter]
   letter
 end
+
+# Create a method to decode an entire word in Morse code
+
+def decode_word (word)
+  split_chars = word.split
+  empty_word = ""
+  split_chars.each do |char|
+    new_letter = decode_letter(char)
+    empty_word += new_letter
+  end
+    return empty_word
+end
+decode_word("-- -.--")
+
+# Create a method to decode the entire message in Morse code
+
+def decode_message(morse)
+  morse.strip().split('   ').map(decode_word).join(' ');
+end
+
