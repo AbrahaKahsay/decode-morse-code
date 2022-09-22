@@ -46,21 +46,21 @@ end
 
 # Create a method to decode an entire word in Morse code
 
-def decode_word (word)
+def decode_word(word)
   split_chars = word.split
-  empty_word = ""
+  word_collection = ""
   split_chars.each do |char|
     new_letter = decode_letter(char)
-    empty_word += new_letter
+    word_collection += new_letter
   end
-    return empty_word
+    return word_collection
 end
 decode_word("-- -.--")
 
 # Create a method to decode the entire message in Morse code
 
 def decode_message(morse)
-  split_words = morse.split("   ")
+  split_words = morse.split('   ')
   message = []
   split_words.each do |word|
     new_word = decode_word(word)
