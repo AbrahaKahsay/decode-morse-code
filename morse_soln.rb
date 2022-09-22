@@ -1,4 +1,4 @@
-$morce_hash = {
+@morce_hash = {
   '.-' => 'A',
   '-...' => 'B',
   '-.-.' => 'C',
@@ -40,22 +40,21 @@ $morce_hash = {
 # Create a method to decode a Morse code character
 
 def decode_letter(letter)
-  letter = $morce_hash[letter]
-  letter
+  @morce_hash[letter]
 end
 
 # Create a method to decode an entire word in Morse code
 
 def decode_word(word)
   split_chars = word.split
-  word_collection = ""
+  word_collection = ''
   split_chars.each do |char|
     new_letter = decode_letter(char)
     word_collection += new_letter
   end
-    return word_collection
+  word_collection
 end
-decode_word("-- -.--")
+decode_word('-- -.--')
 
 # Create a method to decode the entire message in Morse code
 
@@ -67,9 +66,7 @@ def decode_message(morse)
     new_message_array = message.push(new_word)
     @joined_message = new_message_array.join(' ')
   end
-    return @joined_message
+  @joined_message
 end
 
 decode_message('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
-
-
