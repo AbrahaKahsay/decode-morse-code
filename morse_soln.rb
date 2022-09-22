@@ -60,6 +60,14 @@ decode_word("-- -.--")
 # Create a method to decode the entire message in Morse code
 
 def decode_message(morse)
-  morse.strip().split('   ').map(decode_word).join(' ');
+  split_words = morse.split(" ")
+  message = []
+  split_words.each do |word|
+    new_word = decode_word(word)
+    joined_message = message.push(new_word).join(" ")
+  end
+    return joined_message
 end
+
+decode_message('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
 
